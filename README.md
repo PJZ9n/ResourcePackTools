@@ -20,6 +20,8 @@
 - プラグインをpluginsフォルダに入れる
 
 ## 例
+最初に、任意のファイルをプラグインのresourcesフォルダ(srcフォルダと同じように)に入れます。
+
 - DynamicResourcePack
 ```php
 use pjz9n\resourcepacktools\DynamicResourcePack;
@@ -84,6 +86,8 @@ Apply resource packs easily from plugins!
 - Put plugins in the plugins folder.
 
 ## Examples
+First, put any files into the plugin's resources folder (just like the src folder).
+
 - DynamicResourcePack
 ```php
 use pjz9n\resourcepacktools\DynamicResourcePack;
