@@ -122,6 +122,6 @@ class FileResourcePack extends DynamicResourcePack
             $zip->close();
             $this->plugin->getLogger()->debug("The resource pack has been created!");
         }
-        parent::addResourcePack();
+        parent::registerResourcePack();
     }
 }
