@@ -7,6 +7,75 @@
 |---|---|
 |[![](https://poggit.pmmp.io/ci.shield/PJZ9n/ResourcePackTools/ResourcePackTools)](https://poggit.pmmp.io/ci/PJZ9n/ResourcePackTools/ResourcePackTools)|[![](https://poggit.pmmp.io/ci.shield/PJZ9n/ResourcePackTools/ResourcePackToolsPlugin)](https://poggit.pmmp.io/ci/PJZ9n/ResourcePackTools/ResourcePackToolsPlugin)|
 
+- [日本語](#日本語)
+- [English](#English)
+
+## 日本語
+
+## 概要
+プラグインから簡単にリソースパックを適用します！
+
+## 使い方
+- Virionを使ってあなたのプラグインに注入する
+- プラグインをpluginsフォルダに入れる
+
+## 例
+- DynamicResourcePack
+```php
+use pjz9n\resourcepacktools\DynamicResourcePack;
+use pocketmine\plugin\Plugin;
+
+/** @var Plugin $this */
+
+$pack = new DynamicResourcePack($this->getDataFolder() . "pack.zip");
+//リソースパックを登録する
+$pack->registerResourcePack();
+```
+
+- FileResourcePack
+```php
+use pjz9n\resourcepacktools\FileResourcePack;
+use pjz9n\resourcepacktools\ResourcePackVersion;
+use pocketmine\plugin\Plugin;
+
+//プラグイン名: HogePlugin
+
+/** @var Plugin $this */
+
+$version = new ResourcePackVersion(0, 0, 1);
+$pack = new FileResourcePack($this->getDataFolder() . "pack.zip", $this, $version);
+//リソースパックにファイルを追加する
+$pack->addFile("test.png");// resources/test.png, pack-path: hogeplugin/test.png
+$pack->addFile("foo/image1.png");// resources/foo/image.png, pack-path: hogeplugin/foo/image1.png
+$pack->addFile("foo/image2.png", "image2.png");// resources/foo/image.png, pack-path: hogeplugin/image2.png
+//リソースパックのアイコンを設定する
+$pack->setIcon("bar/icon.png");// resources/bar/icon.png, pack-path: pack_icon.png
+//リソースパックを登録する
+$pack->registerResourcePack();
+
+//フォームボタンの画像に使用する例
+$formData = [
+    "buttons" => [
+        [
+            "text" => "Button 1!",
+            "image" => [
+                "type" => "path",
+                "data" => "hogeplugin/test",
+            ],
+        ],
+        [
+            "text" => "Button 2!",
+            "image" => [
+                "type" => "path",
+                "data" => "hogeplugin/foo/image1",
+            ],
+        ],
+    ],
+];
+```
+
+## English
+
 ## Overview
 Apply resource packs easily from plugins!
 
