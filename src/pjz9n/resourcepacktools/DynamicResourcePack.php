@@ -39,6 +39,14 @@ class DynamicResourcePack
     }
 
     /**
+     * @return string
+     */
+    public function getZipPath(): string
+    {
+        return $this->zipPath;
+    }
+
+    /**
      * @throws ReflectionException
      */
     public function addResourcePack(): void
