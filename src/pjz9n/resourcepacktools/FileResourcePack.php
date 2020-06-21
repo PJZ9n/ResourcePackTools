@@ -79,7 +79,7 @@ class FileResourcePack extends DynamicResourcePack
         $this->iconPath = $filePath;
     }
 
-    public function addResourcePack(): void
+    public function registerResourcePack(): void
     {
         try {
             $this->plugin->getLogger()->debug("Create a resource pack...");

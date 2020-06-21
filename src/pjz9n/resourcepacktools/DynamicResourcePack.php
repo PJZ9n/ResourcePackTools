@@ -49,7 +49,7 @@ class DynamicResourcePack
     /**
      * @throws ReflectionException
      */
-    public function addResourcePack(): void
+    public function registerResourcePack(): void
     {
         $resourcePackManager = Server::getInstance()->getResourcePackManager();
         $newResourcePack = new ZippedResourcePack($this->zipPath);

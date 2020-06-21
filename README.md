@@ -23,8 +23,8 @@ use pocketmine\plugin\Plugin;
 /** @var Plugin $this */
 
 $pack = new DynamicResourcePack($this->getDataFolder() . "pack.zip");
-//Add and Register the resource pack.
-$pack->addResourcePack();
+//Register the resource pack.
+$pack->registerResourcePack();
 ```
 
 - FileResourcePack
@@ -45,8 +45,8 @@ $pack->addFile("foo/image1.png");// resources/foo/image.png, pack-path: hogeplug
 $pack->addFile("foo/image2.png", "image2.png");// resources/foo/image.png, pack-path: hogeplugin/image2.png
 //Set the pack icon.
 $pack->setIcon("bar/icon.png");// resources/bar/icon.png, pack-path: pack_icon.png
-//Add and Register the resource pack.
-$pack->addResourcePack();
+//Register the resource pack.
+$pack->registerResourcePack();
 
 //Example: form-button image...
 $formData = [
