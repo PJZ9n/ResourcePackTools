@@ -6,4 +6,5 @@ projects:
   ResourcePackTools:
     type: library
     model: virion
+  ResourcePackToolsPlugin: []
 ...
