@@ -54,13 +54,13 @@ class DynamicResourcePack
         $resourcePackManager = Server::getInstance()->getResourcePackManager();
         $newResourcePack = new ZippedResourcePack($this->zipPath);
         $resourcePackManagerReflection = new ReflectionClass(get_class($resourcePackManager));
-        //ResourcePackManager::resourcePacksを編集
+        //ResourcePackManager::resourcePacks
         $resourcePacksProperty = $resourcePackManagerReflection->getProperty("resourcePacks");
         $resourcePacksProperty->setAccessible(true);
         $resourcePacksValue = $resourcePacksProperty->getValue($resourcePackManager);
         $resourcePacksValue[] = $newResourcePack;
         $resourcePacksProperty->setValue($resourcePackManager, $resourcePacksValue);
-        //ResourcePackManager::uuidListを編集
+        //ResourcePackManager::uuidList
         $uuidListProperty = $resourcePackManagerReflection->getProperty("uuidList");
         $uuidListProperty->setAccessible(true);
         $uuidListValue = $uuidListProperty->getValue($resourcePackManager);
