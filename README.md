@@ -29,6 +29,7 @@ use pocketmine\plugin\Plugin;
 
 /** @var Plugin $this */
 
+//ここで指定するパスは、キャッシュファイルのように機能します。
 $pack = new DynamicResourcePack($this->getDataFolder() . "pack.zip");
 //リソースパックを登録する
 $pack->registerResourcePack();
@@ -45,6 +46,7 @@ use pocketmine\plugin\Plugin;
 /** @var Plugin $this */
 
 $version = new ResourcePackVersion(0, 0, 1);
+//ここで指定するパスは、キャッシュファイルのように機能します。
 $pack = new FileResourcePack($this->getDataFolder() . "pack.zip", $this, $version);
 //リソースパックにファイルを追加する
 $pack->addFile("test.png");// resources/test.png, pack-path: hogeplugin/test.png
@@ -95,6 +97,7 @@ use pocketmine\plugin\Plugin;
 
 /** @var Plugin $this */
 
+//The path you specify here is like a cache file.
 $pack = new DynamicResourcePack($this->getDataFolder() . "pack.zip");
 //Register the resource pack.
 $pack->registerResourcePack();
@@ -111,6 +114,7 @@ use pocketmine\plugin\Plugin;
 /** @var Plugin $this */
 
 $version = new ResourcePackVersion(0, 0, 1);
+//The path you specify here is like a cache file.
 $pack = new FileResourcePack($this->getDataFolder() . "pack.zip", $this, $version);
 //Add the files.
 $pack->addFile("test.png");// resources/test.png, pack-path: hogeplugin/test.png
