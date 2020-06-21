@@ -16,8 +16,11 @@
 プラグインから簡単にリソースパックを適用します！
 
 ## 使い方
-- Virionを使ってあなたのプラグインに注入する
-- プラグインをpluginsフォルダに入れる
+Virionを使ってあなたのプラグインに注入する
+
+もしくは
+
+プラグインをpluginsフォルダに入れる
 
 ## 例
 最初に、任意のファイルをプラグインのresourcesフォルダ(srcフォルダと同じように)に入れます。
@@ -84,8 +87,11 @@ $formData = [
 Apply resource packs easily from plugins!
 
 ## How to use
-- Inject into your plugin using Virion.
-- Put plugins in the plugins folder.
+Inject into your plugin using Virion.
+
+or
+
+Put plugins in the plugins folder.
 
 ## Examples
 First, put any files into the plugin's resources folder (just like the src folder).
