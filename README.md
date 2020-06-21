@@ -7,9 +7,12 @@
 |---|---|
 |[![](https://poggit.pmmp.io/ci.shield/PJZ9n/ResourcePackTools/ResourcePackTools)](https://poggit.pmmp.io/ci/PJZ9n/ResourcePackTools/ResourcePackTools)|[![](https://poggit.pmmp.io/ci.shield/PJZ9n/ResourcePackTools/ResourcePackToolsPlugin)](https://poggit.pmmp.io/ci/PJZ9n/ResourcePackTools/ResourcePackToolsPlugin)|
 
+## Overview
+Apply resource packs easily from plugins!
+
 ## How to use
-- Use Virion
-- Use Plugin
+- Inject into your plugin using Virion.
+- Put plugins in the plugins folder.
 
 ## Examples
 - DynamicResourcePack
