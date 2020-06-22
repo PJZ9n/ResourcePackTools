@@ -23,6 +23,8 @@ Virionを使ってあなたのプラグインに注入する
 プラグインをpluginsフォルダに入れる
 
 ## 例
+[サンプルプラグイン(計算機)](https://github.com/PJZ9n/Calculator)
+
 最初に、任意のファイルをプラグインのresourcesフォルダ(srcフォルダと同じように)に入れます。
 
 - DynamicResourcePack
@@ -94,6 +96,8 @@ or
 Put plugins in the plugins folder.
 
 ## Examples
+[Sample Plugin(Calculator)](https://github.com/PJZ9n/Calculator)
+
 First, put any files into the plugin's resources folder (just like the src folder).
 
 - DynamicResourcePack
