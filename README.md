@@ -34,7 +34,7 @@ use pocketmine\plugin\Plugin;
 
 /** @var Plugin $this */
 
-//ここで指定するパスは、キャッシュファイルのように機能します。
+//リソースパックのパスを指定します｡
 $pack = new DynamicResourcePack($this->getDataFolder() . "pack.zip");
 //リソースパックを登録する
 $pack->registerResourcePack();
@@ -107,7 +107,7 @@ use pocketmine\plugin\Plugin;
 
 /** @var Plugin $this */
 
-//The path you specify here is like a cache file.
+//Specify the path of the resource pack.
 $pack = new DynamicResourcePack($this->getDataFolder() . "pack.zip");
 //Register the resource pack.
 $pack->registerResourcePack();
