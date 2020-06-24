@@ -9,4 +9,6 @@ projects:
     model: virion
   ResourcePackToolsPlugin:
     path: resourcepacktools/
+  ResourceExample:
+    path: examples/resourceexample/
 ...

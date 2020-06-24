@@ -1,0 +1,8 @@
+name: ResourceExample
+version: 1.0.0
+main: pjz9n\resourceexample\Main
+api: 3.0.0
+commands:
+  resourceexample:
+    aliases:
+      - re
