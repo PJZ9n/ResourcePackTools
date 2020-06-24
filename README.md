@@ -24,6 +24,21 @@
 ### プラグインの製作例
 - [ResourceExample](https://github.com/PJZ9n/ResourcePackTools/tree/master/examples/resourceexample)
 
+### ディレクトリ構成
+```
+plugin.phar(Plugin)/
+    ├ resources/
+    │   ├ info.png
+    │   └ test/
+    │       └ server.png
+    └ src/
+       └ ...
+test1.zip(ResourcePack)/
+    ├ server.png
+    ├ manifest.json
+    └ pack_icon.png
+```
+
 ### リソースパックの生成
 ```php
 $pack = new SimpleResourcePack($this, new Version(1, 0, 0));
@@ -50,6 +65,21 @@ Tool (library) for easy use of resource packs from plugins
 
 ### Example of plugin
 - [ResourceExample](https://github.com/PJZ9n/ResourcePackTools/tree/master/examples/resourceexample)
+
+### Directory structure
+```
+plugin.phar(Plugin)/
+    ├ resources/
+    │   ├ info.png
+    │   └ test/
+    │       └ server.png
+    └ src/
+       └ ...
+test1.zip(ResourcePack)/
+    ├ server.png
+    ├ manifest.json
+    └ pack_icon.png
+```
 
 ### Generate ResourcePack
 ```php
