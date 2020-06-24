@@ -31,6 +31,9 @@ use ReflectionException;
 
 abstract class ResourcePack
 {
+    /**
+     * @param string $resourcePackPath
+     */
     public static function register(string $resourcePackPath): void
     {
         $resourcePackManager = Server::getInstance()->getResourcePackManager();
