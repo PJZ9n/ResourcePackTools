@@ -13,145 +13,47 @@
 ## 日本語
 
 ## 概要
-プラグインから簡単にリソースパックを適用します！
+プラグインから簡単にリソースパックを扱うためのツール(ライブラリ)
 
-## 使い方
-Virionを使ってあなたのプラグインに注入する
+## 使用方法
+- Virionライブラリとして使用する
+- APIプラグインとして使用する
 
-もしくは
+## コード例
 
-プラグインをpluginsフォルダに入れる
-
-## 例
-[サンプルプラグイン(計算機)](https://github.com/PJZ9n/Calculator)
-
-最初に、任意のファイルをプラグインのresourcesフォルダ(srcフォルダと同じように)に入れます。
-
-- DynamicResourcePack
+### リソースパックの生成
 ```php
-use pjz9n\resourcepacktools\DynamicResourcePack;
-use pocketmine\plugin\Plugin;
-
-/** @var Plugin $this */
-
-//リソースパックのパスを指定します｡
-$pack = new DynamicResourcePack($this->getDataFolder() . "pack.zip");
-//リソースパックを登録する
-$pack->registerResourcePack();
+$pack = new SimpleResourcePack($this, new Version(1, 0, 0));
+$pack->setPackIcon("info.png");
+$pack->addFile("test/server.png", "server.png");
+$pack->generate($this->getDataFolder() . "test1.zip");
 ```
 
-- FileResourcePack
+### リソースパックの登録
 ```php
-use pjz9n\resourcepacktools\FileResourcePack;
-use pjz9n\resourcepacktools\ResourcePackVersion;
-use pocketmine\plugin\Plugin;
-
-//プラグイン名: HogePlugin
-
-/** @var Plugin $this */
-
-$version = new ResourcePackVersion(0, 0, 1);
-//ここで指定するパスは、キャッシュファイルのように機能します。
-$pack = new FileResourcePack($this->getDataFolder() . "pack.zip", $this, $version);
-//リソースパックにファイルを追加する
-$pack->addFile("test.png");// resources/test.png, pack-path: hogeplugin/test.png
-$pack->addFile("foo/image1.png");// resources/foo/image.png, pack-path: hogeplugin/foo/image1.png
-$pack->addFile("foo/image2.png", "image2.png");// resources/foo/image.png, pack-path: hogeplugin/image2.png
-//リソースパックのアイコンを設定する
-$pack->setIcon("bar/icon.png");// resources/bar/icon.png, pack-path: pack_icon.png
-//リソースパックを登録する
-$pack->registerResourcePack();
-
-//フォームボタンの画像に使用する例
-$formData = [
-    "buttons" => [
-        [
-            "text" => "Button 1!",
-            "image" => [
-                "type" => "path",
-                "data" => "hogeplugin/test",
-            ],
-        ],
-        [
-            "text" => "Button 2!",
-            "image" => [
-                "type" => "path",
-                "data" => "hogeplugin/foo/image1",
-            ],
-        ],
-    ],
-];
+ResourcePack::register($this->getDataFolder() . "test1.zip");
 ```
 
 ## English
 
 ## Overview
-Apply resource packs easily from plugins!
+Tool (library) for easy use of resource packs from plugins
 
 ## How to use
-Inject into your plugin using Virion.
+- Use as Virion library
+- Use as API Plugin
 
-or
+## Code examples
 
-Put plugins in the plugins folder.
-
-## Examples
-[Sample Plugin(Calculator)](https://github.com/PJZ9n/Calculator)
-
-First, put any files into the plugin's resources folder (just like the src folder).
-
-- DynamicResourcePack
+### Generate ResourcePack
 ```php
-use pjz9n\resourcepacktools\DynamicResourcePack;
-use pocketmine\plugin\Plugin;
-
-/** @var Plugin $this */
-
-//Specify the path of the resource pack.
-$pack = new DynamicResourcePack($this->getDataFolder() . "pack.zip");
-//Register the resource pack.
-$pack->registerResourcePack();
+$pack = new SimpleResourcePack($this, new Version(1, 0, 0));
+$pack->setPackIcon("info.png");
+$pack->addFile("test/server.png", "server.png");
+$pack->generate($this->getDataFolder() . "test1.zip");
 ```
 
-- FileResourcePack
+### Register ResourcePack
 ```php
-use pjz9n\resourcepacktools\FileResourcePack;
-use pjz9n\resourcepacktools\ResourcePackVersion;
-use pocketmine\plugin\Plugin;
-
-//PluginName: HogePlugin
-
-/** @var Plugin $this */
-
-$version = new ResourcePackVersion(0, 0, 1);
-//The path you specify here is like a cache file.
-$pack = new FileResourcePack($this->getDataFolder() . "pack.zip", $this, $version);
-//Add the files.
-$pack->addFile("test.png");// resources/test.png, pack-path: hogeplugin/test.png
-$pack->addFile("foo/image1.png");// resources/foo/image.png, pack-path: hogeplugin/foo/image1.png
-$pack->addFile("foo/image2.png", "image2.png");// resources/foo/image.png, pack-path: hogeplugin/image2.png
-//Set the pack icon.
-$pack->setIcon("bar/icon.png");// resources/bar/icon.png, pack-path: pack_icon.png
-//Register the resource pack.
-$pack->registerResourcePack();
-
-//Example: form-button image...
-$formData = [
-    "buttons" => [
-        [
-            "text" => "Button 1!",
-            "image" => [
-                "type" => "path",
-                "data" => "hogeplugin/test",
-            ],
-        ],
-        [
-            "text" => "Button 2!",
-            "image" => [
-                "type" => "path",
-                "data" => "hogeplugin/foo/image1",
-            ],
-        ],
-    ],
-];
+ResourcePack::register($this->getDataFolder() . "test1.zip");
 ```
