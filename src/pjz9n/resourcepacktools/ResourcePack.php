@@ -23,6 +23,7 @@ declare(strict_types=1);
 
 namespace pjz9n\resourcepacktools;
 
+use LogicException;
 use pocketmine\resourcepacks\ZippedResourcePack;
 use pocketmine\Server;
 use ReflectionClass;
@@ -30,25 +31,26 @@ use ReflectionException;
 
 abstract class ResourcePack
 {
-    /**
-     * @throws ReflectionException
-     */
     public static function register(string $resourcePackPath): void
     {
         $resourcePackManager = Server::getInstance()->getResourcePackManager();
         $newResourcePack = new ZippedResourcePack($resourcePackPath);
-        $resourcePackManagerReflection = new ReflectionClass(get_class($resourcePackManager));
-        //ResourcePackManager::$resourcePacks
-        $resourcePacksProperty = $resourcePackManagerReflection->getProperty("resourcePacks");
-        $resourcePacksProperty->setAccessible(true);
-        $resourcePacksValue = $resourcePacksProperty->getValue($resourcePackManager);
-        $resourcePacksValue[] = $newResourcePack;
-        $resourcePacksProperty->setValue($resourcePackManager, $resourcePacksValue);
-        //ResourcePackManager::$uuidList
-        $uuidListProperty = $resourcePackManagerReflection->getProperty("uuidList");
-        $uuidListProperty->setAccessible(true);
-        $uuidListValue = $uuidListProperty->getValue($resourcePackManager);
-        $uuidListValue[$newResourcePack->getPackId()] = $newResourcePack;
-        $uuidListProperty->setValue($resourcePackManager, $uuidListValue);
+        try {
+            $resourcePackManagerReflection = new ReflectionClass(get_class($resourcePackManager));
+            //ResourcePackManager::$resourcePacks
+            $resourcePacksProperty = $resourcePackManagerReflection->getProperty("resourcePacks");
+            $resourcePacksProperty->setAccessible(true);
+            $resourcePacksValue = $resourcePacksProperty->getValue($resourcePackManager);
+            $resourcePacksValue[] = $newResourcePack;
+            $resourcePacksProperty->setValue($resourcePackManager, $resourcePacksValue);
+            //ResourcePackManager::$uuidList
+            $uuidListProperty = $resourcePackManagerReflection->getProperty("uuidList");
+            $uuidListProperty->setAccessible(true);
+            $uuidListValue = $uuidListProperty->getValue($resourcePackManager);
+            $uuidListValue[$newResourcePack->getPackId()] = $newResourcePack;
+            $uuidListProperty->setValue($resourcePackManager, $uuidListValue);
+        } catch (ReflectionException $reflectionException) {
+            throw new LogicException("Caught ReflectionException.");
+        }
     }
 }
