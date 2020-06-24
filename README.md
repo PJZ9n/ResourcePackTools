@@ -3,9 +3,9 @@
 [![release](https://img.shields.io/github/release/PJZ9n/ResourcePackTools.svg)](https://github.com/PJZ9n/ResourcePackTools/releases)
 [![license](https://img.shields.io/badge/License-GPL--v3-green)](https://github.com/PJZ9n/ResourcePackTools/blob/master/LICENSE)
 
-|Virion Library|API Plugin|
-|---|---|
-|[![](https://poggit.pmmp.io/ci.shield/PJZ9n/ResourcePackTools/ResourcePackTools)](https://poggit.pmmp.io/ci/PJZ9n/ResourcePackTools/ResourcePackTools)|[![](https://poggit.pmmp.io/ci.shield/PJZ9n/ResourcePackTools/ResourcePackToolsPlugin)](https://poggit.pmmp.io/ci/PJZ9n/ResourcePackTools/ResourcePackToolsPlugin)|
+|Virion Library|API Plugin|Example Plugin|
+|---|---|---|
+|[![](https://poggit.pmmp.io/ci.shield/PJZ9n/ResourcePackTools/ResourcePackTools)](https://poggit.pmmp.io/ci/PJZ9n/ResourcePackTools/ResourcePackTools)|[![](https://poggit.pmmp.io/ci.shield/PJZ9n/ResourcePackTools/ResourcePackToolsPlugin)](https://poggit.pmmp.io/ci/PJZ9n/ResourcePackTools/ResourcePackToolsPlugin)|[![](https://poggit.pmmp.io/ci.shield/PJZ9n/ResourcePackTools/ResourceExample)](https://poggit.pmmp.io/ci/PJZ9n/ResourcePackTools/ResourceExample)
 
 - [日本語](#日本語)
 - [English](#English)
@@ -20,6 +20,9 @@
 - APIプラグインとして使用する
 
 ## コード例
+
+### プラグインの製作例
+- [ResourceExample](https://github.com/PJZ9n/ResourcePackTools/tree/master/examples/resourceexample)
 
 ### リソースパックの生成
 ```php
@@ -44,6 +47,9 @@ Tool (library) for easy use of resource packs from plugins
 - Use as API Plugin
 
 ## Code examples
+
+### Example of plugin
+- [ResourceExample](https://github.com/PJZ9n/ResourcePackTools/tree/master/examples/resourceexample)
 
 ### Generate ResourcePack
 ```php
