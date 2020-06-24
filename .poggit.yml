@@ -4,7 +4,9 @@ branches:
   - master
 projects:
   ResourcePackTools:
+    path: ResourcePackTools/
     type: library
     model: virion
-  ResourcePackToolsPlugin: []
+  ResourcePackToolsPlugin:
+    path: ResourcePackTools/
 ...
