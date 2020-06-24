@@ -53,28 +53,4 @@ class ResourcePackVersion
     {
         return [$this->first, $this->second, $this->third];
     }
-
-    /**
-     * @return int
-     */
-    public function getFirst(): int
-    {
-        return $this->first;
-    }
-
-    /**
-     * @return int
-     */
-    public function getSecond(): int
-    {
-        return $this->second;
-    }
-
-    /**
-     * @return int
-     */
-    public function getThird(): int
-    {
-        return $this->third;
-    }
 }
