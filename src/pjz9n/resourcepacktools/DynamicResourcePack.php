@@ -31,19 +31,22 @@ use ReflectionException;
 class DynamicResourcePack
 {
     /** @var string */
-    private $zipPath;
+    private $resourcePackPath;
 
-    public function __construct(string $zipPath)
+    /**
+     * @param string $resourcePackPath
+     */
+    public function __construct(string $resourcePackPath)
     {
-        $this->zipPath = $zipPath;
+        $this->resourcePackPath = $resourcePackPath;
     }
 
     /**
      * @return string
      */
-    public function getZipPath(): string
+    public function getResourcePackPath(): string
     {
-        return $this->zipPath;
+        return $this->resourcePackPath;
     }
 
     /**
@@ -52,7 +55,7 @@ class DynamicResourcePack
     public function registerResourcePack(): void
     {
         $resourcePackManager = Server::getInstance()->getResourcePackManager();
-        $newResourcePack = new ZippedResourcePack($this->zipPath);
+        $newResourcePack = new ZippedResourcePack($this->resourcePackPath);
         $resourcePackManagerReflection = new ReflectionClass(get_class($resourcePackManager));
         //ResourcePackManager::$resourcePacks
         $resourcePacksProperty = $resourcePackManagerReflection->getProperty("resourcePacks");
