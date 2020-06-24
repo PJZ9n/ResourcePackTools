@@ -34,6 +34,11 @@ class ResourcePackVersion
     /** @var int */
     private $third;
 
+    /**
+     * @param int $first
+     * @param int $second
+     * @param int $third
+     */
     public function __construct(int $first, int $second, int $third)
     {
         $this->first = $first;
@@ -41,7 +46,10 @@ class ResourcePackVersion
         $this->third = $third;
     }
 
-    public function toFormatArray(): array
+    /**
+     * @return array
+     */
+    public function getFormatArray(): array
     {
         return [$this->first, $this->second, $this->third];
     }
