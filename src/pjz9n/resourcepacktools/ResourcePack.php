@@ -28,34 +28,15 @@ use pocketmine\Server;
 use ReflectionClass;
 use ReflectionException;
 
-class DynamicResourcePack
+abstract class ResourcePack
 {
-    /** @var string */
-    private $resourcePackPath;
-
-    /**
-     * @param string $resourcePackPath
-     */
-    public function __construct(string $resourcePackPath)
-    {
-        $this->resourcePackPath = $resourcePackPath;
-    }
-
-    /**
-     * @return string
-     */
-    public function getResourcePackPath(): string
-    {
-        return $this->resourcePackPath;
-    }
-
     /**
      * @throws ReflectionException
      */
-    public function registerResourcePack(): void
+    public static function registerResourcePack(string $resourcePackPath): void
     {
         $resourcePackManager = Server::getInstance()->getResourcePackManager();
-        $newResourcePack = new ZippedResourcePack($this->resourcePackPath);
+        $newResourcePack = new ZippedResourcePack($resourcePackPath);
         $resourcePackManagerReflection = new ReflectionClass(get_class($resourcePackManager));
         //ResourcePackManager::$resourcePacks
         $resourcePacksProperty = $resourcePackManagerReflection->getProperty("resourcePacks");
