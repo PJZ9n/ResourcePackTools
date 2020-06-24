@@ -28,7 +28,6 @@ use pjz9n\resourcepacktools\manifest\Version;
 use pjz9n\resourcepacktools\ResourcePack;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\form\Form;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
@@ -55,30 +54,7 @@ class Main extends PluginBase
                     $sender->sendMessage(TextFormat::RED . "Please execute by player.");
                     return true;
                 }
-                $sender->sendForm(new class implements Form {
-                    public function handleResponse(Player $player, $data): void
-                    {
-                        // TODO: Implement handleResponse() method.
-                    }
-
-                    public function jsonSerialize(): array
-                    {
-                        return [
-                            "type" => "form",
-                            "title" => "title",
-                            "content" => "please select!",
-                            "buttons" => [
-                                [
-                                    "text" => "Settings",
-                                    "image" => [
-                                        "type" => "path",
-                                        "data" => "example/form/icons/settings",
-                                    ],
-                                ],
-                            ],
-                        ];
-                    }
-                });
+                $sender->sendForm(new ExampleForm());
                 return true;
         }
         return false;
