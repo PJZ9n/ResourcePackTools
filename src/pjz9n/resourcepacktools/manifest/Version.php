@@ -21,9 +21,9 @@
 
 declare(strict_types=1);
 
-namespace pjz9n\resourcepacktools;
+namespace pjz9n\resourcepacktools\manifest;
 
-class ResourcePackVersion
+class Version
 {
     /** @var int */
     private $first;
