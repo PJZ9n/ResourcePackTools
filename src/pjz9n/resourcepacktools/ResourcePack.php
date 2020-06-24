@@ -33,7 +33,7 @@ abstract class ResourcePack
     /**
      * @throws ReflectionException
      */
-    public static function registerResourcePack(string $resourcePackPath): void
+    public static function register(string $resourcePackPath): void
     {
         $resourcePackManager = Server::getInstance()->getResourcePackManager();
         $newResourcePack = new ZippedResourcePack($resourcePackPath);
