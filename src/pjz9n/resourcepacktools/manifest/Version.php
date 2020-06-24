@@ -49,7 +49,7 @@ class Version
     /**
      * @return array
      */
-    public function getFormatArray(): array
+    public function toArray(): array
     {
         return [$this->first, $this->second, $this->third];
     }
