@@ -54,9 +54,13 @@ ResourcePack::register($this->getDataFolder() . "test1.zip");
 
 ### リソースパックのアップデート
 リソースパックの中身を変える時は、リソースパックのバージョンを上げてください。
+
 例えば`new Version(1, 1, 0);`
+
 これは、一般的なリソースパック開発と同様です。
+
 一度ダウンロードされたリソースパックはキャッシュされますが、バージョンを上げることによって再ダウンロードされます。
+
 
 ## English
 
@@ -102,6 +106,10 @@ ResourcePack::register($this->getDataFolder() . "test1.zip");
 
 ### Update ResourcePack
 When changing the contents of the ResourcePack, please change the version of the ResourcePack.
+
 e.g.`new Version(1, 1, 0);`
+
 This is similar to general ResourcePack development.
+
 ResourcePack that have been downloaded once will be cached, but will be re-downloaded by increasing the version.
+
