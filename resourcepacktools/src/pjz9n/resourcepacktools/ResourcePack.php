@@ -50,7 +50,7 @@ abstract class ResourcePack
             $uuidListProperty = $resourcePackManagerReflection->getProperty("uuidList");
             $uuidListProperty->setAccessible(true);
             $uuidListValue = $uuidListProperty->getValue($resourcePackManager);
-            $uuidListValue[$newResourcePack->getPackId()] = $newResourcePack;
+            $uuidListValue[strtolower($newResourcePack->getPackId())] = $newResourcePack;
             $uuidListProperty->setValue($resourcePackManager, $uuidListValue);
         } catch (ReflectionException $reflectionException) {
             throw new LogicException("Caught ReflectionException.");
