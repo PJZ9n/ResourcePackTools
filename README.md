@@ -27,16 +27,16 @@
 ### ディレクトリ構成
 ```
 plugin.phar(Plugin)/
-    ├ resources/
-    │   ├ info.png
-    │   └ test/
-    │       └ server.png
-    └ src/
+   ├ resources/
+   │   ├ info.png
+   │   └ test/
+   │       └ server.png
+   └ src/
        └ ...
 test1.zip(ResourcePack)/
-    ├ server.png
-    ├ manifest.json
-    └ pack_icon.png
+   ├ server.png
+   ├ manifest.json
+   └ pack_icon.png
 ```
 
 ### リソースパックの生成
@@ -69,16 +69,16 @@ Tool (library) for easy use of resource packs from plugins
 ### Directory structure
 ```
 plugin.phar(Plugin)/
-    ├ resources/
-    │   ├ info.png
-    │   └ test/
-    │       └ server.png
-    └ src/
+   ├ resources/
+   │   ├ info.png
+   │   └ test/
+   │       └ server.png
+   └ src/
        └ ...
 test1.zip(ResourcePack)/
-    ├ server.png
-    ├ manifest.json
-    └ pack_icon.png
+   ├ server.png
+   ├ manifest.json
+   └ pack_icon.png
 ```
 
 ### Generate ResourcePack
