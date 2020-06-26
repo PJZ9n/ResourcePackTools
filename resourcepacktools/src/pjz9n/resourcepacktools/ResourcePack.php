@@ -71,20 +71,28 @@ abstract class ResourcePack
             $resourcePacksProperty = $resourcePackManagerReflection->getProperty("resourcePacks");
             $resourcePacksProperty->setAccessible(true);
             $resourcePacksValue = $resourcePacksProperty->getValue($resourcePackManager);
+            $unregisterKeys = [];
             foreach ($resourcePacksValue as $key => $item) {
                 if ($item === $resourcePack) {
-                    unset($resourcePacksValue[$key]);
+                    $unregisterKeys[] = $key;
                 }
+            }
+            foreach ($unregisterKeys as $unregisterKey) {
+                unset($resourcePacksValue[$unregisterKey]);
             }
             $resourcePacksProperty->setValue($resourcePackManager, $resourcePacksValue);
             //ResourcePackManager::$uuidList
             $uuidListProperty = $resourcePackManagerReflection->getProperty("uuidList");
             $uuidListProperty->setAccessible(true);
             $uuidListValue = $uuidListProperty->getValue($resourcePackManager);
+            $unregisterKeys = [];
             foreach ($uuidListValue as $key => $item) {
                 if ($item === $resourcePack) {
-                    unset($uuidListValue[$key]);
+                    $unregisterKeys[] = $key;
                 }
+            }
+            foreach ($unregisterKeys as $unregisterKey) {
+                unset($uuidListValue[$unregisterKey]);
             }
             $uuidListProperty->setValue($resourcePackManager, $uuidListValue);
         } catch (ReflectionException $reflectionException) {
