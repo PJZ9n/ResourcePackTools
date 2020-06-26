@@ -1,5 +1,5 @@
 name: ResourcePackToolsPlugin
-version: 2.1.0
+version: 2.2.0
 main: pjz9n\resourcepacktools\Main
 api: 3.0.0
 commands:
