@@ -9,6 +9,7 @@ projects:
     model: virion
   ResourcePackToolsPlugin:
     path: resourcepacktools/
+    icon: icon.png
   ResourceExample:
     path: examples/resourceexample/
     libs:
