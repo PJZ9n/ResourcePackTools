@@ -23,6 +23,8 @@ declare(strict_types=1);
 
 namespace pjz9n\resourcepacktools;
 
+use pocketmine\command\Command;
+use pocketmine\command\CommandSender;
 use pocketmine\lang\BaseLang;
 use pocketmine\plugin\PluginBase;
 
@@ -39,5 +41,23 @@ class Main extends PluginBase
         $localePath = $this->getFile() . "resources/locale/";
         $this->lang = new BaseLang($lang, $localePath, "eng");
         $this->getLogger()->info($this->lang->translateString("language.selected", [$this->lang->getName()]));
+    }
+
+    public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool
+    {
+        switch ($command) {//$command->__toString()
+            case "resourcepack":
+                if (!isset($args[0])) return false;
+                $type = $args[0];
+                switch ($type) {
+                    case "resgister":
+                        if (!isset($args[1])) return false;
+                        return true;
+                    case "list":
+                        return true;
+                }
+                return false;
+        }
+        return false;
     }
 }

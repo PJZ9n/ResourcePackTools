@@ -2,3 +2,14 @@ name: ResourcePackToolsPlugin
 version: 2.0.1
 main: pjz9n\resourcepacktools\Main
 api: 3.0.0
+commands:
+  resourcepack:
+    description: Manage ResourcePack
+    usage: "/resourcepack register <filename>\n
+    /resourcepack list"
+    aliases:
+      - rp
+    permission: resourcepacktools.command.resourcepack
+permissions:
+  resourcepacktools.command.resourcepack:
+    default: op
