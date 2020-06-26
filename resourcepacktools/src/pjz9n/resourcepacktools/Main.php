@@ -27,6 +27,8 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\lang\BaseLang;
 use pocketmine\plugin\PluginBase;
+use pocketmine\resourcepacks\ResourcePackException;
+use pocketmine\utils\TextFormat;
 
 class Main extends PluginBase
 {
@@ -50,8 +52,18 @@ class Main extends PluginBase
                 if (!isset($args[0])) return false;
                 $type = $args[0];
                 switch ($type) {
-                    case "resgister":
+                    case "register":
                         if (!isset($args[1])) return false;
+                        $fileName = $args[1];
+                        try {
+                            ResourcePack::register($fileName);
+                        } catch (ResourcePackException $resourcePackException) {
+                            $sender->sendMessage(TextFormat::RED . $resourcePackException->getMessage());//TODO: message
+                            return true;
+                        }
+                        $sender->sendMessage(
+                            TextFormat::GREEN . $this->lang->translateString("resourcepack.register.success", [$fileName])
+                        );
                         return true;
                     case "list":
                         if (!isset($args[1])) return false;
