@@ -75,9 +75,9 @@ class Manifest implements JsonSerializable
      */
     public function removeModule(Module $target): void
     {
-        foreach ($this->modules as &$module) {
+        foreach ($this->modules as $key => $module) {
             if ($module === $target) {
-                unset($module);
+                unset($this->modules[$key]);
                 //$this->modules = array_values($this->modules);//TODO
             }
         }
