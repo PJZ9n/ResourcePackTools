@@ -6,6 +6,8 @@ commands:
   resourcepack:
     description: Manage ResourcePack
     usage: "/resourcepack register <filename>\n
+    /resourcepack unregisterbyindex <index>\n
+    /resourcepack unregisterbyuuid <uuid>\n
     /resourcepack list pack:uuid"
     aliases:
       - rp
