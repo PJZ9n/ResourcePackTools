@@ -102,6 +102,7 @@ abstract class ResourcePack
             $resourcePackManagerReflection = new ReflectionClass(get_class($resourcePackManager));
             //ResourcePackManager::$resourcePacks
             $resourcePacksProperty = $resourcePackManagerReflection->getProperty("resourcePacks");
+            $resourcePacksProperty->setAccessible(true);
             $resourcePacksValue = $resourcePacksProperty->getValue($resourcePackManager);
             return $resourcePacksValue;
         } catch (ReflectionException $reflectionException) {
@@ -119,6 +120,7 @@ abstract class ResourcePack
             $resourcePackManagerReflection = new ReflectionClass(get_class($resourcePackManager));
             //ResourcePackManager::$uuidList
             $uuidListProperty = $resourcePackManagerReflection->getProperty("uuidList");
+            $uuidListProperty->setAccessible(true);
             $uuidListValue = $uuidListProperty->getValue($resourcePackManager);
             return $uuidListValue;
         } catch (ReflectionException $reflectionException) {
