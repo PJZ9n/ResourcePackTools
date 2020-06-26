@@ -54,7 +54,29 @@ class Main extends PluginBase
                         if (!isset($args[1])) return false;
                         return true;
                     case "list":
-                        return true;
+                        if (!isset($args[1])) return false;
+                        $mode = $args[1];
+                        switch ($mode) {
+                            case "pack":
+                                //pack mode
+                                $list = [];
+                                foreach (ResourcePack::getPackList() as $index => $pack) {
+                                    $list[] = (string)$index . " => " . $pack->getPath();
+                                }
+                                $sender->sendMessage("index => path");
+                                $sender->sendMessage(implode("\n", $list));
+                                return true;
+                            case "uuid":
+                                //uuid mode
+                                $list = [];
+                                foreach (ResourcePack::getUuidList() as $uuid => $pack) {
+                                    $list[] = (string)$uuid . " => " . $pack->getPath();
+                                }
+                                $sender->sendMessage("uuid => path");
+                                $sender->sendMessage(implode("\n", $list));
+                                return true;
+                        }
+                        return false;
                 }
                 return false;
         }

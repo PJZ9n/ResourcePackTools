@@ -6,7 +6,7 @@ commands:
   resourcepack:
     description: Manage ResourcePack
     usage: "/resourcepack register <filename>\n
-    /resourcepack list"
+    /resourcepack list pack:uuid"
     aliases:
       - rp
     permission: resourcepacktools.command.resourcepack
