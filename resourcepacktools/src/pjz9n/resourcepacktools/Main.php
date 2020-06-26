@@ -23,9 +23,21 @@ declare(strict_types=1);
 
 namespace pjz9n\resourcepacktools;
 
+use pocketmine\lang\BaseLang;
 use pocketmine\plugin\PluginBase;
 
 class Main extends PluginBase
 {
-    //Dummy class
+    /** @var BaseLang */
+    private $lang;
+
+    public function onEnable(): void
+    {
+        $this->saveDefaultConfig();
+        $configLang = (string)$this->getConfig()->get("lang", "def");
+        $lang = $configLang === "def" ? $this->getServer()->getLanguage()->getLang() : $configLang;
+        $localePath = $this->getFile() . "resources/locale/";
+        $this->lang = new BaseLang($lang, $localePath, "eng");
+        $this->getLogger()->info($this->lang->translateString("language.selected", [$this->lang->getName()]));
+    }
 }
