@@ -5,10 +5,10 @@ api: 3.0.0
 commands:
   resourcepack:
     description: Manage ResourcePack
-    usage: "/resourcepack register <filename>\n
-    /resourcepack unregisterbyindex <index>\n
-    /resourcepack unregisterbyuuid <uuid>\n
-    /resourcepack list pack:uuid"
+    usage: "/resourcepack register(r) <filename>\n
+    /resourcepack unregisterbyindex(urbi) <index>\n
+    /resourcepack unregisterbyuuid(urbu) <uuid>\n
+    /resourcepack list(l) pack(p):uuid(u)"
     aliases:
       - rp
     permission: resourcepacktools.command.resourcepack

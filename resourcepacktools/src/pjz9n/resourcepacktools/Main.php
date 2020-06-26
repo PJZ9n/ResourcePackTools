@@ -54,6 +54,7 @@ class Main extends PluginBase
                 $type = $args[0];
                 switch ($type) {
                     case "register":
+                    case "r":
                         if (!isset($args[1])) return false;
                         $fileName = $args[1];
                         try {
@@ -67,6 +68,7 @@ class Main extends PluginBase
                         );
                         return true;
                     case "unregisterbyindex":
+                    case "urbi":
                         if (!isset($args[1])) return false;
                         $index = $args[1];
                         if (!is_numeric($index)) {//TODO: more validation
@@ -89,6 +91,7 @@ class Main extends PluginBase
                         );
                         return true;
                     case "unregisterbyuuid":
+                    case "urbu":
                         if (!isset($args[1])) return false;
                         $uuid = $args[1];
                         $pack = ResourcePack::getPackByUuid($uuid);
@@ -104,10 +107,12 @@ class Main extends PluginBase
                         );
                         return true;
                     case "list":
+                    case "l":
                         if (!isset($args[1])) return false;
                         $mode = $args[1];
                         switch ($mode) {
                             case "pack":
+                            case "p":
                                 //pack mode
                                 $list = [];
                                 foreach (ResourcePack::getPackList() as $index => $pack) {
@@ -123,6 +128,7 @@ class Main extends PluginBase
                                 }
                                 return true;
                             case "uuid":
+                            case "u":
                                 //uuid mode
                                 $list = [];
                                 foreach (ResourcePack::getUuidList() as $uuid => $pack) {
