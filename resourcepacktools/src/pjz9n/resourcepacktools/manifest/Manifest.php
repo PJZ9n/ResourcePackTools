@@ -62,6 +62,35 @@ class Manifest implements JsonSerializable
         return $this->modules;
     }
 
+    /**
+     * @param Module $module
+     */
+    public function addModule(Module $module): void
+    {
+        $this->modules[] = $module;
+    }
+
+    /**
+     * @param Module $target
+     */
+    public function removeModule(Module $target): void
+    {
+        foreach ($this->modules as &$module) {
+            if ($module === $target) {
+                unset($module);
+                //$this->modules = array_values($this->modules);//TODO
+            }
+        }
+    }
+
+    /**
+     * @param int $id array index
+     */
+    public function removeModuleById(int $id): void
+    {
+        unset($this->modules[$id]);
+    }
+
     public function jsonSerialize(): array
     {
         $manifest = [
