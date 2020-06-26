@@ -29,6 +29,7 @@ use pocketmine\lang\BaseLang;
 use pocketmine\plugin\PluginBase;
 use pocketmine\resourcepacks\ResourcePackException;
 use pocketmine\utils\TextFormat;
+use pocketmine\resourcepacks\ResourcePack as PMResourcePack;
 
 class Main extends PluginBase
 {
@@ -63,6 +64,43 @@ class Main extends PluginBase
                         }
                         $sender->sendMessage(
                             TextFormat::GREEN . $this->lang->translateString("resourcepack.register.success", [$fileName])
+                        );
+                        return true;
+                    case "unregisterbyindex":
+                        if (!isset($args[1])) return false;
+                        $index = $args[1];
+                        if (!is_numeric($index)) {//TODO: more validation
+                            $sender->sendMessage(
+                                TextFormat::RED . $this->lang->translateString("command.validate.onlynumeric")
+                            );
+                            return true;
+                        }
+                        $index = (int)$index;
+                        $pack = ResourcePack::getPackByIndex($index);
+                        if (!($pack instanceof PMResourcePack)) {
+                            $sender->sendMessage(
+                                TextFormat::RED . $this->lang->translateString("resourcepack.notfound")
+                            );
+                            return true;
+                        }
+                        ResourcePack::unRegister($pack);
+                        $sender->sendMessage(
+                            TextFormat::GREEN . $this->lang->translateString("resourcepack.unregister.success", ["index={$index}"])
+                        );
+                        return true;
+                    case "unregisterbyuuid":
+                        if (!isset($args[1])) return false;
+                        $uuid = $args[1];
+                        $pack = ResourcePack::getPackByUuid($uuid);
+                        if (!($pack instanceof PMResourcePack)) {
+                            $sender->sendMessage(
+                                TextFormat::RED . $this->lang->translateString("resourcepack.notfound")
+                            );
+                            return true;
+                        }
+                        ResourcePack::unRegister($pack);
+                        $sender->sendMessage(
+                            TextFormat::GREEN . $this->lang->translateString("resourcepack.unregister.success", ["uuid={$uuid}"])
                         );
                         return true;
                     case "list":
