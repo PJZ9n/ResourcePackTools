@@ -61,6 +61,16 @@ ResourcePack::register($this->getDataFolder() . "test1.zip");
 
 一度ダウンロードされたリソースパックはキャッシュされますが、バージョンを上げることによって再ダウンロードされます。
 
+## プラグイン
+
+### コマンド
+|コマンド名|説明|パラメータ|権限|エイリアス|プレイヤーのみ|
+|---|---|---|---|---|---|
+|resourcepack|リソースパックを管理する|---|resourcepacktools.command.resourcepack|rp|いいえ|
+|resourcepack register|リソースパックを登録する|\<ファイル名\>|---|なし|いいえ|
+|resourcepack unregisterbyindex|リソースパックをindexから登録解除する|\<index\>|---|なし|いいえ|
+|resourcepack unregisterbyuuid|リソースパックをuuidから登録解除する|\<uuid\>|---|なし|いいえ|
+|resourcepack list|リソースパックのリストを表示する|pack:uuid|---|なし|いいえ|
 
 ## English
 
@@ -112,4 +122,15 @@ e.g.`new Version(1, 1, 0);`
 This is similar to general ResourcePack development.
 
 ResourcePack that have been downloaded once will be cached, but will be re-downloaded by increasing the version.
+
+## Plugin
+
+### Command
+|command name|description|parameter|permission|alias|only player|
+|---|---|---|---|---|---|
+|resourcepack|Manage ResourcePack|---|resourcepacktools.command.resourcepack|rp|no|
+|resourcepack register|Register the ResourcePack|\<filename\>|---|no|no|
+|resourcepack unregisterbyindex|Unregister the ResourcePack by index|\<index\>|---|no|no|
+|resourcepack unregisterbyuuid|Unregister the ResourcePack by uuid|\<uuid\>|---|no|no|
+|resourcepack list|Show the ResourcePack list|pack:uuid|---|no|no|
 
