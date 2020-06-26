@@ -114,7 +114,13 @@ class Main extends PluginBase
                                     $list[] = (string)$index . " => " . $pack->getPath();
                                 }
                                 $sender->sendMessage("index => path");
-                                $sender->sendMessage(implode("\n", $list));
+                                if (count($list) < 1) {
+                                    $sender->sendMessage(
+                                        TextFormat::RED . $this->lang->translateString("resourcepack.notfound")
+                                    );
+                                } else {
+                                    $sender->sendMessage(implode("\n", $list));
+                                }
                                 return true;
                             case "uuid":
                                 //uuid mode
@@ -123,7 +129,13 @@ class Main extends PluginBase
                                     $list[] = (string)$uuid . " => " . $pack->getPath();
                                 }
                                 $sender->sendMessage("uuid => path");
-                                $sender->sendMessage(implode("\n", $list));
+                                if (count($list) < 1) {
+                                    $sender->sendMessage(
+                                        TextFormat::RED . $this->lang->translateString("resourcepack.notfound")
+                                    );
+                                } else {
+                                    $sender->sendMessage(implode("\n", $list));
+                                }
                                 return true;
                         }
                         return false;
