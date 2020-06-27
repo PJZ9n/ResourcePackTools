@@ -118,12 +118,12 @@ class Main extends PluginBase
                                 foreach (ResourcePack::getPackList() as $index => $pack) {
                                     $list[] = (string)$index . " => " . $pack->getPath();
                                 }
-                                $sender->sendMessage("index => path");
                                 if (count($list) < 1) {
                                     $sender->sendMessage(
                                         TextFormat::RED . $this->lang->translateString("resourcepack.notfound")
                                     );
                                 } else {
+                                    $sender->sendMessage("index => path");
                                     $sender->sendMessage(implode("\n", $list));
                                 }
                                 return true;
@@ -134,12 +134,12 @@ class Main extends PluginBase
                                 foreach (ResourcePack::getUuidList() as $uuid => $pack) {
                                     $list[] = (string)$uuid . " => " . $pack->getPath();
                                 }
-                                $sender->sendMessage("uuid => path");
                                 if (count($list) < 1) {
                                     $sender->sendMessage(
                                         TextFormat::RED . $this->lang->translateString("resourcepack.notfound")
                                     );
                                 } else {
+                                    $sender->sendMessage("uuid => path");
                                     $sender->sendMessage(implode("\n", $list));
                                 }
                                 return true;
