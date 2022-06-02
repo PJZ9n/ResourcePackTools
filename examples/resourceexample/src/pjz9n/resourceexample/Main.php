@@ -28,7 +28,7 @@ use pjz9n\resourcepacktools\manifest\Version;
 use pjz9n\resourcepacktools\ResourcePack;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
 

@@ -24,7 +24,7 @@ declare(strict_types=1);
 namespace pjz9n\resourceexample;
 
 use pocketmine\form\Form;
-use pocketmine\Player;
+use pocketmine\player\Player;
 
 class ExampleForm implements Form
 {
