@@ -25,7 +25,7 @@ namespace pjz9n\resourcepacktools;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\lang\BaseLang;
+use pocketmine\lang\Language;
 use pocketmine\plugin\PluginBase;
 use pocketmine\resourcepacks\ResourcePackException;
 use pocketmine\utils\TextFormat;
@@ -33,8 +33,8 @@ use pocketmine\resourcepacks\ResourcePack as PMResourcePack;
 
 class Main extends PluginBase
 {
-    /** @var BaseLang */
-    private $lang;
+    /** @var Language */
+    private Language $lang;
 
     public function onEnable(): void
     {
@@ -42,7 +42,7 @@ class Main extends PluginBase
         $configLang = (string)$this->getConfig()->get("lang", "def");
         $lang = $configLang === "def" ? $this->getServer()->getLanguage()->getLang() : $configLang;
         $localePath = $this->getFile() . "resources/locale/";
-        $this->lang = new BaseLang($lang, $localePath, "eng");
+        $this->lang = new Language($lang, $localePath, "eng");
         $this->getLogger()->info($this->lang->translateString("language.selected", [$this->lang->getName()]));
     }
 
