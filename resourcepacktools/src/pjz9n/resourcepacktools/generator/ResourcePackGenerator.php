@@ -30,16 +30,16 @@ use ZipArchive;
 class ResourcePackGenerator
 {
     /** @var Plugin */
-    private $plugin;
+    private Plugin $plugin;
 
     /** @var Manifest */
-    private $manifest;
+    private Manifest $manifest;
 
     /** @var string|null PluginResourceRelativePath */
-    private $packIcon;
+    private ?string $packIcon;
 
     /** @var string[] ResourcePackPath => PluginResourceRelativePath */
-    private $files;
+    private array $files;
 
     /**
      * @param Plugin $plugin
