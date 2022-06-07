@@ -27,16 +27,16 @@ use pjz9n\resourcepacktools\manifest\Header;
 use pjz9n\resourcepacktools\manifest\Manifest;
 use pjz9n\resourcepacktools\manifest\Module;
 use pjz9n\resourcepacktools\manifest\Version;
-use pocketmine\plugin\Plugin;
+use pocketmine\plugin\PluginBase;
 use Ramsey\Uuid\Uuid;
 
 class SimpleResourcePack extends ResourcePackGenerator
 {
     /**
-     * @param Plugin $plugin
+     * @param PluginBase $plugin
      * @param Version $version
      */
-    public function __construct(Plugin $plugin, Version $version)
+    public function __construct(PluginBase $plugin, Version $version)
     {
         //TODO: Can header and module versions be different?
         $manifest = new Manifest(

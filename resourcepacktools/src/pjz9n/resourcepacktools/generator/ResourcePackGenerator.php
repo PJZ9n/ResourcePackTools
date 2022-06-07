@@ -25,12 +25,13 @@ namespace pjz9n\resourcepacktools\generator;
 
 use pjz9n\resourcepacktools\manifest\Manifest;
 use pocketmine\plugin\Plugin;
+use pocketmine\plugin\PluginBase;
 use ZipArchive;
 
 class ResourcePackGenerator
 {
-    /** @var Plugin */
-    private Plugin $plugin;
+    /** @var PluginBase */
+    private PluginBase $plugin;
 
     /** @var Manifest */
     private Manifest $manifest;
@@ -42,10 +43,10 @@ class ResourcePackGenerator
     private array $files;
 
     /**
-     * @param Plugin $plugin
+     * @param PluginBase $plugin
      * @param Manifest $manifest
      */
-    public function __construct(Plugin $plugin, Manifest $manifest)
+    public function __construct(PluginBase $plugin, Manifest $manifest)
     {
         $this->plugin = $plugin;
         $this->manifest = $manifest;
@@ -121,9 +122,9 @@ class ResourcePackGenerator
     }
 
     /**
-     * @return Plugin
+     * @return PluginBase
      */
-    protected function getPlugin(): Plugin
+    protected function getPlugin(): PluginBase
     {
         return $this->plugin;
     }
