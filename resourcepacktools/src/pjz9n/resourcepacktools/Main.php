@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Copyright (c) 2020 PJZ9n.
  *
@@ -27,17 +26,16 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\lang\Language;
 use pocketmine\plugin\PluginBase;
-use pocketmine\resourcepacks\ResourcePackException;
-use pocketmine\utils\TextFormat;
 use pocketmine\resourcepacks\ResourcePack as PMResourcePack;
+use pocketmine\resourcepacks\ResourcePackException;
+use pocketmine\resourcepacks\ZippedResourcePack;
+use pocketmine\utils\TextFormat;
 
-class Main extends PluginBase
-{
+class Main extends PluginBase {
     /** @var Language */
     private Language $lang;
 
-    public function onEnable(): void
-    {
+    public function onEnable(): void {
         $this->saveDefaultConfig();
         $configLang = (string)$this->getConfig()->get("lang", "def");
         $lang = $configLang === "def" ? $this->getServer()->getLanguage()->getLang() : $configLang;
@@ -46,8 +44,7 @@ class Main extends PluginBase
         $this->getLogger()->info($this->lang->translateString("language.selected", [$this->lang->getName()]));
     }
 
-    public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool
-    {
+    public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool {
         switch ($command) {//$command->__toString()
             case "resourcepack":
                 if (!isset($args[0])) return false;
@@ -116,7 +113,12 @@ class Main extends PluginBase
                                 //pack mode
                                 $list = [];
                                 foreach (ResourcePack::getPackList() as $index => $pack) {
+                                    if($pack instanceof ZippedResourcePack){
                                     $list[] = (string)$index . " => " . $pack->getPath();
+
+                                    }else{
+                                        $list[] = (string)$index . " => " . $this->lang->translateString("resourcepack.unknown");
+                                    }
                                 }
                                 if (count($list) < 1) {
                                     $sender->sendMessage(
@@ -132,7 +134,11 @@ class Main extends PluginBase
                                 //uuid mode
                                 $list = [];
                                 foreach (ResourcePack::getUuidList() as $uuid => $pack) {
-                                    $list[] = (string)$uuid . " => " . $pack->getPath();
+                                    if($pack instanceof ZippedResourcePack) {
+                                        $list[] = (string)$uuid . " => " . $pack->getPath();
+                                    }else{
+                                        $list[] = (string)$uuid . " => ". $this->lang->translateString("resourcepack.unknown");
+                                    }
                                 }
                                 if (count($list) < 1) {
                                     $sender->sendMessage(
